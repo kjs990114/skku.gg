@@ -10,10 +10,11 @@
 
 <body>
     <div class="container" id="top">
-        <h1><a href="index.php">SKKU.GG</a></h1>
+        <h1>SKKU.GG</h1>
         <div>
-            <input type="button" value="회원가입" onClick="location.href='signup_view.php'">
-            <input type="button" value="로그인" onClick="location.href='login_view.php'">
+            <input id="btn" type="button" onClick="location.href='./signup.html'" value="회원가입">
+            <input id="btn" type="button" onclick="location.href='./login.html'" value="로그인">
+            <input id="btn" type="button" onclick="location.href='./ranking.html'" value="학교 랭킹">
         </div>
     </div>
     <br>
@@ -28,15 +29,6 @@
         </form>
     </div>
     <br>
-    <div>
-        <h3>학교랭킹검색</h3>
-        <form method="get">
-            <div class="form-group">
-                <input class="form-control" placeholder="학교명을 입력하세요." type="text" name="schoolname">
-                <input type="submit" value="검색">
-            </div>
-        </form>
-    </div>
     <br>
     <br>
 </body>
