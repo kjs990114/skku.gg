@@ -1,36 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKKU.GG</title>
+    <meta charset="utf-8">
+    <title>first page</title>
 </head>
 
 <body>
-    <div class="container" id="top">
-        <h1>SKKU.GG</h1>
-        <div>
-            <input id="btn" type="button" onClick="location.href='./signup.html'" value="회원가입">
-            <input id="btn" type="button" onclick="location.href='./login.html'" value="로그인">
-            <input id="btn" type="button" onclick="location.href='./ranking.html'" value="학교 랭킹">
-        </div>
-    </div>
-    <br>
-    <br>
-    <div>
-        <h3>전적검색</h3>
-        <form method="get">
-            <div class="form-group">
-                <input class="form-control" placeholder="소환사 이름을 입력하세요." type="text" name="username">
-                <input type="submit" value="검색">
-            </div>
-        </form>
-    </div>
+    <h1>SKKU.GG에 오신것을 환영합니다!</h1>
     <br>
     <br>
     <br>
+    <h3>정보 입력</h3>
+    <p><input type="text" id="get_name" placeholder="이름" required></p>
+    <p><input type="text" id="get_nick" placeholder="소환사명" required></p>
+    <p><input type="text" id="get_id" placeholder="학번" required></p>
+    <p><input type="text" id="get_depart" placeholder="학과" required></p>
+    <p><button type="submit" id="submit" class="btnbtn-primary">Submit</button>
+
+        <script>
+            document.getElementById("submit").addEventListener("click", () => {
+                let name = document.getElementById("get_name").value;
+                let nickname = document.getElementById("get_nick").value;
+                let id = document.getElementById("get_id").value;
+                let depart = document.getElementById("get_depart").value;
+                console.log(JSON.stringify({ name, nickname, id, depart }));
+                fetch("/connect", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, nickname, id, depart })
+                })
+
+                location.href = "./main.html";
+                window.localStorage.setItem("name", name);
+                window.localStorage.setItem("nickname", nickname);
+                window.localStorage.setItem("id", id);
+                window.localStorage.setItem("depart", depart);
+
+            })    
+        </script>
 </body>
 
 </html>
