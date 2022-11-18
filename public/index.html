@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKKU.GG</title>
+</head>
+
+<body>
+    <div class="container" id="top">
+        <h1><a href="index.php">SKKU.GG</a></h1>
+        <div>
+            <input type="button" value="회원가입" onClick="location.href='signup_view.php'">
+            <input type="button" value="로그인" onClick="location.href='login_view.php'">
+        </div>
+    </div>
+    <br>
+    <br>
+    <div>
+        <h3>전적검색</h3>
+        <form method="get">
+            <div class="form-group">
+                <input class="form-control" placeholder="소환사 이름을 입력하세요." type="text" name="username">
+                <input type="submit" value="검색">
+            </div>
+        </form>
+    </div>
+    <br>
+    <div>
+        <h3>학교랭킹검색</h3>
+        <form method="get">
+            <div class="form-group">
+                <input class="form-control" placeholder="학교명을 입력하세요." type="text" name="schoolname">
+                <input type="submit" value="검색">
+            </div>
+        </form>
+    </div>
+    <br>
+    <br>
+</body>
+
+</html>
