@@ -1,0 +1,88 @@
+@font-face {
+    font-family: "FrutigerLTStd-Bold";
+    src: url(./font/FrutigerLTStd-Bold.woff) format("woff");
+}
+
+@font-face {
+    font-family: "pala";
+    src: url(./font/pala.woff) format("woff");
+}
+
+#emblem {
+    margin-right: 18px;
+}
+
+body {
+    margin: 0;
+    background-color: #F5F5F5;
+}
+
+.logo-1 {
+    font-family: "FrutigerLTStd-Bold";
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-size: 45px;
+    color: #919295;
+}
+
+.logo-2 {
+    font-family: "FrutigerLTStd-Bold";
+    font-weight: 700;
+    margin-top: 0;
+    padding: 0;
+    font-size: 19px;
+    color: #919295;
+}
+
+.login-box {
+    width: 520px;
+    margin: auto;
+}
+
+
+
+
+#login-btn {
+    background-color: #3B711D;
+    border-color: #3B711D;
+    border-style: none;
+    width: 500px;
+    height: 60px;
+    color: white;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.input-box {
+    border-radius: 5px;
+    width: 460px;
+    height: 50px;
+    border-style: ridge;
+    border-color: #f5f5f5ec;
+    padding-left: 50px;
+}
+
+.page-header {
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    padding-left: 90px;
+    width: 100%;
+    text-align: center;
+}
+
+.text-box {
+    position: relative;
+    align-items: center;
+    display: flex;
+    margin: 10px;
+}
+
+.text-box i {
+    font-size: 20px;
+    color: #919295;
+    position: absolute;
+    left: 15px;
+    color: gray;
+
+}
