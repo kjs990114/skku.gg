@@ -41,6 +41,9 @@
         </content>
     </div>
     <script>
+        window.addEventListener("load", () => {
+            console.log(window.localStorage);
+        })
         document.getElementById("search-btn").addEventListener("click", () => {
             let nick = document
                 .getElementById("summoner-search")

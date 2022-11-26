@@ -14,19 +14,28 @@
         .lose {
             color: red;
         }
+
+        #history-element {
+            display: flex;
+        }
+
+        #spells {
+            display: grid;
+        }
     </style>
 </head>
 
 <body>
-    <p id="user-name"></p>
-    <p id="user-level"></p>
-    <div id=user-icon></div>
-
-    <p>티어 :
+    <div>
+        <p id="user-name"></p>
+        <p id="user-level"></p>
+        <span id=user-icon></span>
+    </div>
+    <div>티어 :
         <span id="user-tier"></span>
         <span id="user-rank"></span>
         <span id="user-point"></span>
-    </p>
+    </div>
 
     <span id="user-win"></span>승 / <span id="user-loss"></span>패
 
@@ -38,24 +47,110 @@
     <br>
     <h1>최근 10게임 전적</h1>
     <div id="match-history">
-        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
-        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
-        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
-        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
-        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
-        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
-        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
-        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
-        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
-        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
+        <div id="history-element"><span id="win"></span><span id="queueType"></span> <span id="championId"></span> <span
+                id="kda"></span>
+            <div id="spells"> <span id="spell-0"></span> <span id="spell-1"></span></div>
+            <div id="items"> <span id="item-0"></span><span id="item-1"></span><span id="item-2"></span><span
+                    id="item-3"></span>
+                <span id="item-4"></span><span id="item-5"></span>
+            </div>
+        </div>
+        <div id="history-element"><span id="win"></span><span id="queueType"></span> <span id="championId"></span> <span
+                id="kda"></span>
+            <div id="spells"> <span id="spell-0"></span> <span id="spell-1"></span></div>
+            <div id="items"> <span id="item-0"></span><span id="item-1"></span><span id="item-2"></span><span
+                    id="item-3"></span>
+                <span id="item-4"></span><span id="item-5"></span>
+            </div>
+        </div>
+
+        <div id="history-element"><span id="win"></span><span id="queueType"></span> <span id="championId"></span> <span
+                id="kda"></span>
+            <div id="spells"> <span id="spell-0"></span> <span id="spell-1"></span></div>
+            <div id="items"> <span id="item-0"></span><span id="item-1"></span><span id="item-2"></span><span
+                    id="item-3"></span>
+                <span id="item-4"></span><span id="item-5"></span>
+            </div>
+        </div>
+        <div id="history-element"><span id="win"></span><span id="queueType"></span> <span id="championId"></span> <span
+                id="kda"></span>
+            <div id="spells"> <span id="spell-0"></span> <span id="spell-1"></span></div>
+            <div id="items"> <span id="item-0"></span><span id="item-1"></span><span id="item-2"></span><span
+                    id="item-3"></span>
+                <span id="item-4"></span><span id="item-5"></span>
+            </div>
+        </div>
+        <div id="history-element"><span id="win"></span><span id="queueType"></span> <span id="championId"></span> <span
+                id="kda"></span>
+            <div id="spells"> <span id="spell-0"></span> <span id="spell-1"></span></div>
+            <div id="items"> <span id="item-0"></span><span id="item-1"></span><span id="item-2"></span><span
+                    id="item-3"></span>
+                <span id="item-4"></span><span id="item-5"></span>
+            </div>
+        </div>
+        <div id="history-element"><span id="win"></span><span id="queueType"></span> <span id="championId"></span> <span
+                id="kda"></span>
+            <div id="spells"> <span id="spell-0"></span> <span id="spell-1"></span></div>
+            <div id="items"> <span id="item-0"></span><span id="item-1"></span><span id="item-2"></span><span
+                    id="item-3"></span>
+                <span id="item-4"></span><span id="item-5"></span>
+            </div>
+        </div>
+        <div id="history-element"><span id="win"></span><span id="queueType"></span> <span id="championId"></span> <span
+                id="kda"></span>
+            <div id="spells"> <span id="spell-0"></span> <span id="spell-1"></span></div>
+            <div id="items"> <span id="item-0"></span><span id="item-1"></span><span id="item-2"></span><span
+                    id="item-3"></span>
+                <span id="item-4"></span><span id="item-5"></span>
+            </div>
+        </div>
+        <div id="history-element"><span id="win"></span><span id="queueType"></span> <span id="championId"></span> <span
+                id="kda"></span>
+            <div id="spells"> <span id="spell-0"></span> <span id="spell-1"></span></div>
+            <div id="items"> <span id="item-0"></span><span id="item-1"></span><span id="item-2"></span><span
+                    id="item-3"></span>
+                <span id="item-4"></span><span id="item-5"></span>
+            </div>
+        </div>
+        <div id="history-element"><span id="win"></span><span id="queueType"></span> <span id="championId"></span> <span
+                id="kda"></span>
+            <div id="spells"> <span id="spell-0"></span> <span id="spell-1"></span></div>
+            <div id="items"> <span id="item-0"></span><span id="item-1"></span><span id="item-2"></span><span
+                    id="item-3"></span>
+                <span id="item-4"></span><span id="item-5"></span>
+            </div>
+        </div>
+        <div id="history-element"><span id="win"></span><span id="queueType"></span> <span id="championId"></span> <span
+                id="kda"></span>
+            <div id="spells"> <span id="spell-0"></span> <span id="spell-1"></span></div>
+            <div id="items"> <span id="item-0"></span><span id="item-1"></span><span id="item-2"></span><span
+                    id="item-3"></span>
+                <span id="item-4"></span><span id="item-5"></span>
+            </div>
+        </div>
     </div>
 
 
 
 
     <script>
+        function getSpellName(spellId) {
+            if (spellId === 21) return "SummonerBarrier";
+            if (spellId === 1) return "SummonerBoost";
+            if (spellId === 14) return "SummonerDot";
+            if (spellId === 3) return "SummonerExhaust";
+            if (spellId === 4) return "SummonerFlash";
+            if (spellId === 6) return "SummonerHaste";
+            if (spellId === 7) return "SummonerHeal";
+            if (spellId === 13) return "SummonerMana";
+            if (spellId === 30) return "SummonerPororecall";
+            if (spellId === 31) return "SummonerPorothrow";
+            if (spellId === 11) return "SummonerSmite";
+            if (spellId === 32) return "SummonerSnowball";
+            if (spellId === 12) return "SummonerTeleport";
+        }
         const api = "RGAPI-2e1ce1cf-6ec5-41ae-956a-d38e84664106";
-
+        //440 = 자유랭크 , 420 = 솔로랭크, 나머지 => 일반
         window.addEventListener("load", () => {
             fetch("/search", { method: "GET" })
                 .then((res) => res.json())
@@ -114,9 +209,8 @@
                                         const xmlhttp4 = new XMLHttpRequest();
                                         xmlhttp4.onreadystatechange = function () {
                                             if (this.readyState == 4 && this.status == 200) {
-                                                console.log("실행완료");
                                                 const user_info4 = JSON.parse(this.responseText);
-                                                console.log(user_info4['info']['participants'][0]);
+                                                console.log(user_info4);
                                                 for (let j = 0; j < 10; j++) {
                                                     const user = user_info4['info']['participants'][j];
                                                     if (user['puuid'] === puuid) {
@@ -135,17 +229,102 @@
                                                             match_history.children[i].children[0].setAttribute("class", "lose");
 
                                                         }
-                                                        console.log(match_history.children);
-
-                                                        // match_history.children[i].children[1].textContent = championId;
+                                                        const queueId = user_info4["info"]["queueId"];
+                                                        console.log("타입 : " + queueId);
+                                                        console.log(match_history.children[i]);
+                                                        if (queueId === 440) { //자유랭크
+                                                            match_history.children[i].children[1].textContent = "자유랭크";
+                                                        }
+                                                        else if (queueId === 420) { //솔로랭크
+                                                            match_history.children[i].children[1].textContent = "솔로랭크";
+                                                        }
+                                                        else { //일반
+                                                            match_history.children[i].children[1].textContent = "일반    ";
+                                                        }
                                                         let img = document.createElement("img");
                                                         img.src = "https://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/" + championId + ".png";
                                                         img.width = 50;
-                                                        if (match_history.children[i].children[1].childElementCount === 0) {
-                                                            match_history.children[i].children[1].appendChild(img);
+                                                        if (match_history.children[i].children[2].childElementCount === 0) {
+                                                            match_history.children[i].children[2].appendChild(img);
                                                         }
 
-                                                        match_history.children[i].children[2].textContent = kills + "/" + deaths + "/" + assists;
+                                                        match_history.children[i].children[3].textContent = kills + "/" + deaths + "/" + assists;
+
+                                                        let spell_0 = document.createElement("img");
+                                                        let sp0 = getSpellName(user["summoner1Id"]);
+                                                        spell_0.src = "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/" + sp0 + ".png";
+                                                        spell_0.width = 20;
+                                                        let spell_1 = document.createElement("img");
+                                                        let sp1 = getSpellName(user["summoner2Id"]);
+                                                        if (match_history.children[i].children[4].children[0].childElementCount === 0) {
+                                                            match_history.children[i].children[4].children[0].appendChild(spell_0);
+                                                        }
+                                                        spell_1.src = "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/spell/" + sp1 + ".png";
+                                                        spell_1.width = 20;
+                                                        if (match_history.children[i].children[4].children[1].childElementCount === 0) {
+                                                            match_history.children[i].children[4].children[1].appendChild(spell_1);
+                                                        }
+                                                        let item0 = document.createElement("img");
+                                                        let item1 = document.createElement("img");
+                                                        let item2 = document.createElement("img");
+                                                        let item3 = document.createElement("img");
+                                                        let item4 = document.createElement("img");
+                                                        let item5 = document.createElement("img");
+                                                        item0.src = "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/" + user["item0"] + ".png";
+                                                        item1.src = "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/" + user["item1"] + ".png";
+                                                        item2.src = "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/" + user["item2"] + ".png";
+                                                        item3.src = "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/" + user["item3"] + ".png";
+                                                        item4.src = "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/" + user["item4"] + ".png";
+                                                        item5.src = "http://ddragon.leagueoflegends.com/cdn/12.22.1/img/item/" + user["item5"] + ".png";
+                                                        if (!user['item0']) {
+                                                            item0.src = "./css/img/-.png";
+                                                        }
+                                                        if (!user['item1']) {
+                                                            item1.src = "./css/img/-.png";
+                                                        }
+                                                        if (!user['item2']) {
+                                                            item2.src = "./css/img/-.png";
+                                                        }
+                                                        if (!user['item3']) {
+                                                            item3.src = "./css/img/-.png";
+                                                        }
+                                                        if (!user['item4']) {
+                                                            item4.src = "./css/img/-.png";
+                                                        }
+                                                        if (!user['item5']) {
+                                                            item5.src = "./css/img/-.png";
+                                                        }
+
+                                                        item0.width = 18;
+                                                        item1.width = 18;
+                                                        item2.width = 18;
+                                                        item3.width = 18;
+                                                        item4.width = 18;
+                                                        item5.width = 18;
+                                                        if (match_history.children[i].children[5].children[0].childElementCount === 0) {
+                                                            match_history.children[i].children[5].children[0].appendChild(item0);
+                                                        }
+                                                        if (match_history.children[i].children[5].children[1].childElementCount === 0) {
+
+                                                            match_history.children[i].children[5].children[1].appendChild(item1);
+                                                        }
+                                                        if (match_history.children[i].children[5].children[2].childElementCount === 0) {
+
+                                                            match_history.children[i].children[5].children[2].appendChild(item2);
+                                                        }
+                                                        if (match_history.children[i].children[5].children[3].childElementCount === 0) {
+
+                                                            match_history.children[i].children[5].children[3].appendChild(item3);
+                                                        }
+                                                        if (match_history.children[i].children[5].children[4].childElementCount === 0) {
+
+                                                            match_history.children[i].children[5].children[4].appendChild(item4);
+                                                        }
+                                                        if (match_history.children[i].children[5].children[5].childElementCount === 0) {
+
+                                                            match_history.children[i].children[5].children[5].appendChild(item5);
+                                                        }
+
 
 
                                                     }

@@ -14,9 +14,9 @@ app.post('/connect', (req, res) => {
     if (flag) {
         user.push(req.body);
         user_count++;
-        console.log(JSON.stringify(user))
-        res.send(200);
     }
+    console.log(JSON.stringify(user))
+    res.send(200);
 })
 // setInterval(() => console.log(JSON.stringify(user)), 1000);
 app.use(express.static("public"));
