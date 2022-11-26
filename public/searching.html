@@ -31,14 +31,31 @@
         <p id="user-level"></p>
         <span id=user-icon></span>
     </div>
-    <div>티어 :
-        <span id="user-tier"></span>
-        <span id="user-rank"></span>
-        <span id="user-point"></span>
+    <div>
+        <div>
+            <div> 리그 : 솔로랭크 5v5
+                <img id="tier-img-solo">
+                <span id="user-tier-solo"></span>
+                <span id="user-rank-solo"></span>
+                <span id="user-point-solo"></span>
+            </div>
+            <div id="win-rate-solo">
+                <span id="user-win-solo"></span>승 <span id="user-loss-solo"></span>패
+            </div>
+        </div>
+
+        <div>
+            <div> 리그 : 자유랭크 5v5
+                <img id="tier-img-free">
+                <span id="user-tier-free"></span>
+                <span id="user-rank-free"></span>
+                <span id="user-point-free"></span>
+            </div>
+            <div id="win-rate-free">
+                <span id="user-win-free"></span>승 <span id="user-loss-free"></span>패
+            </div>
+        </div>
     </div>
-
-    <span id="user-win"></span>승 / <span id="user-loss"></span>패
-
 
     <br>
     <br>
@@ -134,6 +151,20 @@
 
 
     <script>
+        const tier_emblem = ["Emblem_Unrank.png", "Emblem_Iron.png", "Emblem_Silver.png", "Emblem_Gold.png", "Emblem_Platinum.png"
+            , "Emblem_Diamond.png", "Emblem_Master.png", "Emblem_Grandmaster.png", "Emblem_Challenger.png"];
+
+        const tier_id = {
+            "IRON": 1,
+            "SILVER": 2,
+            "GOLD": 3,
+            "PLATINUM": 4,
+            "DIAMOND": 5,
+            "MASTER": 6,
+            "GRANDMASTER": 7,
+            "CHALLENGER": 8,
+        }
+
         function getSpellName(spellId) {
             if (spellId === 21) return "SummonerBarrier";
             if (spellId === 1) return "SummonerBoost";
@@ -182,16 +213,129 @@
                                 if (this.readyState == 4 && this.status == 200) {
 
                                     const user_info2 = JSON.parse(this.responseText);
-                                    const tier = user_info2[0]["tier"];
-                                    const rank = user_info2[0]["rank"];
-                                    const point = user_info2[0]["leaguePoints"];
-                                    const win = user_info2[0]["wins"];
-                                    const lose = user_info2[0]["losses"];
-                                    document.getElementById("user-tier").textContent = tier;
-                                    document.getElementById("user-rank").textContent = rank;
-                                    document.getElementById("user-point").innerHTML = point;
-                                    document.getElementById("user-win").innerHTML = win;
-                                    document.getElementById("user-loss").innerHTML = lose;
+
+                                    if (user_info2.length === 0) { //솔랭, 자랭 둘다 unranked일때
+                                        document.getElementById("user-tier-solo").textContent = "UNRANKED";
+                                        document.getElementById("user-tier-free").textContent = "UNRANKED";
+                                        document.getElementById("win-rate-solo").remove();
+                                        document.getElementById("win-rate-free").remove();
+                                        document.getElementById("tier-img-solo").src = "./css/img/Emblem_Unrank.png";
+                                        document.getElementById("tier-img-solo").width = 80;
+                                        document.getElementById("tier-img-free").src = "./css/img/Emblem_Unrank.png";
+                                        document.getElementById("tier-img-free").width = 80;
+
+                                    }
+                                    else if (user_info2.length === 1) {
+                                        if (user_info2[0]["queueType"] === "RANKED_SOLO_5x5") { //솔랭만
+                                            const tier = user_info2[0]["tier"];
+                                            const rank = user_info2[0]["rank"];
+                                            const point = user_info2[0]["leaguePoints"];
+                                            const win = user_info2[0]["wins"];
+                                            const lose = user_info2[0]["losses"];
+
+                                            document.getElementById("user-tier-solo").textContent = tier;
+                                            document.getElementById("user-rank-solo").textContent = rank;
+                                            document.getElementById("user-point-solo").innerHTML = point;
+                                            document.getElementById("user-win-solo").innerHTML = win;
+                                            document.getElementById("user-loss-solo").innerHTML = lose;
+
+                                            document.getElementById("user-tier-free").textContent = "UNRANKED";
+                                            document.getElementById("win-rate-free").remove();
+
+                                            let link = "./css/img/" + tier_emblem[tier_id[tier]];
+                                            document.getElementById("tier-img-solo").src = link;
+                                            document.getElementById("tier-img-solo").width = 80;
+
+
+                                            document.getElementById("tier-img-free").src = "./css/img/Emblem_Unrank.png";
+                                            document.getElementById("tier-img-free").width = 100;
+
+
+                                        }
+                                        else { //자랭만
+                                            const tier = user_info2[0]["tier"];
+                                            const rank = user_info2[0]["rank"];
+                                            const point = user_info2[0]["leaguePoints"];
+                                            const win = user_info2[0]["wins"];
+                                            const lose = user_info2[0]["losses"];
+
+                                            document.getElementById("user-tier-free").textContent = tier;
+                                            document.getElementById("user-rank-free").textContent = rank;
+                                            document.getElementById("user-point-free").innerHTML = point;
+                                            document.getElementById("user-win-free").innerHTML = win;
+                                            document.getElementById("user-loss-free").innerHTML = lose;
+
+                                            document.getElementById("user-tier-solo").textContent = "UNRANKED";
+                                            document.getElementById("win-rate-solo").remove();
+
+                                            let link = "./css/img/" + tier_emblem[tier_id[tier]];
+                                            document.getElementById("tier-img-free").src = link;
+                                            document.getElementById("tier-img-free").width = 80;
+
+
+                                            document.getElementById("tier-img-solo").src = "./css/img/Emblem_Unrank.png";
+                                            document.getElementById("tier-img-solo").width = 80;
+                                        }
+                                    }
+                                    else { //둘다 있을때
+                                        const tier = user_info2[0]["tier"];
+                                        const rank = user_info2[0]["rank"];
+                                        const point = user_info2[0]["leaguePoints"];
+                                        const win = user_info2[0]["wins"];
+                                        const lose = user_info2[0]["losses"];
+
+                                        if (user_info2[0]["queueType"] === "RANKED_SOLO_5x5") {
+                                            document.getElementById("user-tier-solo").textContent = tier;
+                                            document.getElementById("user-rank-solo").textContent = rank;
+                                            document.getElementById("user-point-solo").innerHTML = point;
+                                            document.getElementById("user-win-solo").innerHTML = win;
+                                            document.getElementById("user-loss-solo").innerHTML = lose;
+
+                                            let link = "./css/img/" + tier_emblem[tier_id[tier]];
+                                            document.getElementById("tier-img-solo").src = link;
+                                            document.getElementById("tier-img-solo").width = 80;
+                                        }
+                                        else {
+                                            document.getElementById("user-tier-free").textContent = tier;
+                                            document.getElementById("user-rank-free").textContent = rank;
+                                            document.getElementById("user-point-free").innerHTML = point;
+                                            document.getElementById("user-win-free").innerHTML = win;
+                                            document.getElementById("user-loss-free").innerHTML = lose;
+
+                                            let link = "./css/img/" + tier_emblem[tier_id[tier]];
+                                            document.getElementById("tier-img-free").src = link;
+                                            document.getElementById("tier-img-free").width = 80;
+                                        }
+                                        const tier1 = user_info2[1]["tier"];
+                                        const rank1 = user_info2[1]["rank"];
+                                        const point1 = user_info2[1]["leaguePoints"];
+                                        const win1 = user_info2[1]["wins"];
+                                        const lose1 = user_info2[1]["losses"];
+                                        if (user_info2[1]["queueType"] === "RANKED_FLEX_SR") {
+                                            document.getElementById("user-tier-free").textContent = tier1;
+                                            document.getElementById("user-rank-free").textContent = rank1;
+                                            document.getElementById("user-point-free").innerHTML = point1;
+                                            document.getElementById("user-win-free").innerHTML = win1;
+                                            document.getElementById("user-loss-free").innerHTML = lose1;
+
+                                            let link = "./css/img/" + tier_emblem[tier_id[tier1]];
+                                            document.getElementById("tier-img-free").src = link;
+                                            document.getElementById("tier-img-free").width = 80;
+                                        }
+                                        else {
+                                            document.getElementById("user-tier-solo").textContent = tier1;
+                                            document.getElementById("user-rank-solo").textContent = rank1;
+                                            document.getElementById("user-point-solo").innerHTML = point1;
+                                            document.getElementById("user-win-solo").innerHTML = win1;
+                                            document.getElementById("user-loss-solo").innerHTML = lose1;
+
+                                            let link = "./css/img/" + tier_emblem[tier_id[tier1]];
+                                            document.getElementById("tier-img-solo").src = link;
+                                            document.getElementById("tier-img-solo").width = 80;
+                                        }
+                                    }
+
+
                                 }
                             }
                             xmlhttp2.open("GET", url2, true);
@@ -210,7 +354,6 @@
                                         xmlhttp4.onreadystatechange = function () {
                                             if (this.readyState == 4 && this.status == 200) {
                                                 const user_info4 = JSON.parse(this.responseText);
-                                                console.log(user_info4);
                                                 for (let j = 0; j < 10; j++) {
                                                     const user = user_info4['info']['participants'][j];
                                                     if (user['puuid'] === puuid) {
@@ -230,8 +373,6 @@
 
                                                         }
                                                         const queueId = user_info4["info"]["queueId"];
-                                                        console.log("타입 : " + queueId);
-                                                        console.log(match_history.children[i]);
                                                         if (queueId === 440) { //자유랭크
                                                             match_history.children[i].children[1].textContent = "자유랭크";
                                                         }
