@@ -64,10 +64,39 @@
                     xmlhttp2.onreadystatechange = function () {
                         if (xmlhttp2.status == 200) {
                             const user_info2 = JSON.parse(this.responseText);
-                            const tier = user_info2[0]["tier"];
+                            let tier;
+                            let rank;
+                            let point;
+                            if (user_info2.length === 2) {
+                                if (user_info2[0]["queueType"] === "RANKED_SOLO_5x5") {
+                                    tier = user_info2[0]["tier"];
+                                    rank = user_info2[0]["rank"];
+                                    point = user_info2[0]["leaguePoints"];
+                                }
+                                else {
+                                    tier = user_info2[1]["tier"];
+                                    rank = user_info2[1]["rank"];
+                                    point = user_info2[1]["leaguePoints"];
+                                }
 
-                            const rank = user_info2[0]["rank"];
-                            const point = user_info2[0]["leaguePoints"];
+                            }
+                            else if (user_info2.length === 1) {
+                                if (user_info2[0]["queueType"] === "RANKED_SOLO_5x5") {
+                                    tier = user_info2[0]["tier"];
+                                    rank = user_info2[0]["rank"];
+                                    point = user_info2[0]["leaguePoints"];
+                                }
+                                else {
+                                    tier = "UNRANK";
+                                    rank = "UNRANK";
+                                    point = "UNRANK";
+                                }
+                            }
+                            else {
+                                tier = "UNRANK";
+                                rank = "UNRANK";
+                                point = "UNRANK";
+                            }
                             fetch("/connect", {
                                 method: "POST",
                                 headers: {
