@@ -6,6 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .win {
+            color: rgb(0, 29, 250);
+        }
+
+        .lose {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,6 +30,25 @@
 
     <span id="user-win"></span>승 / <span id="user-loss"></span>패
 
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>최근 10게임 전적</h1>
+    <div id="match-history">
+        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
+        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
+        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
+        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
+        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
+        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
+        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
+        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
+        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
+        <div id="history-element"><span id="win"></span> <span id="championId"></span> <span id="kda"></span></div>
+    </div>
 
 
 
@@ -42,6 +70,7 @@
                             const nick = user_info["name"];
                             const icon = user_info["profileIconId"];
                             const level = user_info["summonerLevel"];
+                            const puuid = user_info["puuid"];
                             document.getElementById("user-name").innerHTML = nick;
                             document.getElementById("user-level").innerHTML = level;
 
@@ -55,7 +84,7 @@
                             const url2 = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/" + id + "?api_key=RGAPI-2e1ce1cf-6ec5-41ae-956a-d38e84664106";
                             const xmlhttp2 = new XMLHttpRequest();
                             xmlhttp2.onreadystatechange = function () {
-                                if (this.status == 200) {
+                                if (this.readyState == 4 && this.status == 200) {
 
                                     const user_info2 = JSON.parse(this.responseText);
                                     const tier = user_info2[0]["tier"];
@@ -73,7 +102,64 @@
                             xmlhttp2.open("GET", url2, true);
                             xmlhttp2.send();
 
+                            const url3 = "https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/" + puuid + "/ids?start=0&count=10&api_key=RGAPI-2e1ce1cf-6ec5-41ae-956a-d38e84664106";
+                            const xmlhttp3 = new XMLHttpRequest();
+                            xmlhttp3.onreadystatechange = function () {
+                                if (this.readyState == 4 && this.status == 200) {
 
+                                    const user_info3 = JSON.parse(this.responseText);
+                                    for (let i = 0; i < 10; i++) {
+                                        const matchID = user_info3[i];
+                                        const url4 = "https://asia.api.riotgames.com/lol/match/v5/matches/" + matchID + "?api_key=RGAPI-2e1ce1cf-6ec5-41ae-956a-d38e84664106";
+                                        const xmlhttp4 = new XMLHttpRequest();
+                                        xmlhttp4.onreadystatechange = function () {
+                                            if (this.readyState == 4 && this.status == 200) {
+                                                console.log("실행완료");
+                                                const user_info4 = JSON.parse(this.responseText);
+                                                console.log(user_info4['info']['participants'][0]);
+                                                for (let j = 0; j < 10; j++) {
+                                                    const user = user_info4['info']['participants'][j];
+                                                    if (user['puuid'] === puuid) {
+                                                        const championId = user['championName'];
+                                                        const kills = user['kills'];
+                                                        const deaths = user['deaths'];
+                                                        const assists = user['assists'];
+                                                        const win = user['win'];
+                                                        let match_history = document.getElementById("match-history");
+                                                        if (win) {
+                                                            match_history.children[i].children[0].textContent = "승";
+                                                            match_history.children[i].children[0].setAttribute("class", "win");
+                                                        }
+                                                        else {
+                                                            match_history.children[i].children[0].textContent = "패";
+                                                            match_history.children[i].children[0].setAttribute("class", "lose");
+
+                                                        }
+                                                        console.log(match_history.children);
+
+                                                        // match_history.children[i].children[1].textContent = championId;
+                                                        let img = document.createElement("img");
+                                                        img.src = "https://ddragon.leagueoflegends.com/cdn/12.22.1/img/champion/" + championId + ".png";
+                                                        img.width = 50;
+                                                        if (match_history.children[i].children[1].childElementCount === 0) {
+                                                            match_history.children[i].children[1].appendChild(img);
+                                                        }
+
+                                                        match_history.children[i].children[2].textContent = kills + "/" + deaths + "/" + assists;
+
+
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        xmlhttp4.open("GET", url4, true);
+                                        xmlhttp4.send();
+                                    }
+
+                                }
+                            }
+                            xmlhttp3.open("GET", url3, true);
+                            xmlhttp3.send();
 
                         }
                         else {

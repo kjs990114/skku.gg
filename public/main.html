@@ -28,6 +28,10 @@
     <br>
     <br>
     <script>
+        window.addEventListener("load", () => {
+            console.log("페이지 로딩완료");
+            console.log(localStorage);
+        })
         document.getElementById("search-btn").addEventListener("click", () => {
             let nick = document.getElementById("summoner-search").value.replace(/(\s*)/g, '');
             if (nick === "") return;
