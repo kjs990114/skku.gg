@@ -46,23 +46,68 @@
     <script>
         document.getElementById("login-btn").addEventListener("click", () => {
             let name = document.getElementById("get_name").value;
-            let nickname = document.getElementById("get_nick").value;
+            let nickname = document.getElementById("get_nick").value.replace(/(\s*)/g, '');
             let id = document.getElementById("get_id").value;
             let depart = document.getElementById("get_depart").value;
-            console.log(JSON.stringify({ name, nickname, id, depart }));
-            fetch("/connect", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, nickname, id, depart })
-            })
 
-            location.href = "./main.html";
-            window.localStorage.setItem("name", name);
-            window.localStorage.setItem("nickname", nickname);
-            window.localStorage.setItem("id", id);
-            window.localStorage.setItem("depart", depart);
+
+            const url = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + nickname + "?api_key=RGAPI-2e1ce1cf-6ec5-41ae-956a-d38e84664106";
+            const xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.status == 200) {
+                    result = this.responseText;
+
+                    const user_info = JSON.parse(result);
+                    const uid = user_info["id"];
+                    const url2 = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/" + uid + "?api_key=RGAPI-2e1ce1cf-6ec5-41ae-956a-d38e84664106";
+                    const xmlhttp2 = new XMLHttpRequest();
+                    xmlhttp2.onreadystatechange = function () {
+                        if (xmlhttp2.status == 200) {
+                            const user_info2 = JSON.parse(this.responseText);
+                            const tier = user_info2[0]["tier"];
+
+                            const rank = user_info2[0]["rank"];
+                            const point = user_info2[0]["leaguePoints"];
+                            fetch("/connect", {
+                                method: "POST",
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({ name, nickname, id, depart, tier, rank, point })
+                            }).then(() => {
+                                location.href = "./main.html";
+                                window.localStorage.setItem("name", name);
+                                window.localStorage.setItem("nickname", nickname);
+                                window.localStorage.setItem("id", id);
+                                window.localStorage.setItem("depart", depart);
+                                window.localStorage.setItem("tier", tier);
+                                window.localStorage.setItem("rank", rank);
+                                window.localStorage.setItem("point", point);
+
+
+                            })
+
+                        }
+                    }
+                    xmlhttp2.open("GET", url2, true);
+                    xmlhttp2.send();
+
+
+
+                }
+                else {
+                    console.log("소환사를 찾을 수 없습니다.");
+                }
+            };
+
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+
+
+
+
+
 
         })    
     </script>

@@ -12,24 +12,37 @@
     <div class="container" id="top">
         <h1>SKKU.GG</h1>
         <div>
-            <input id="btn" type="button" onclick="location.href='./ranking.html'" value="학교 랭킹 확인">
+            <a href='./ranking.html'> 랭킹 확인 </a>
         </div>
+        <div>
+            <a href='./mypage.html'>내 정보</a>
+        </div>
+        <br>
+        <br>
     </div>
-    <br>
-    <br>
     <div>
-        <h3>전적검색</h3>
-        <form method="get">
-            <div class="form-group">
-                <input class="form-control" placeholder="소환사 이름을 입력하세요." type="text" name="username">
-                <input type="submit" value="검색">
-            </div>
-        </form>
+        <input id="summoner-search" placeholder="소환사 이름을 입력하세요." type="text">
+        <button id="search-btn"> 검색</button>
     </div>
     <br>
     <br>
     <br>
     <script>
+        document.getElementById("search-btn").addEventListener("click", () => {
+            let nick = document.getElementById("summoner-search").value.replace(/(\s*)/g, '');
+            if (nick === "") return;
+            fetch("/search", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ nick })
+            })
+
+            location.href = "./searching.html";
+        })
+
+
     </script>
 </body>
 
