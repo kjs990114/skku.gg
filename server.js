@@ -18,7 +18,7 @@ app.post('/connect', (req, res) => {
         res.send(200);
     }
 })
-setInterval(() => console.log(JSON.stringify(user)), 1000);
+// setInterval(() => console.log(JSON.stringify(user)), 1000);
 app.use(express.static("public"));
 
 app.listen(port, () => {
