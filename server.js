@@ -3,8 +3,8 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-
-let user = [{ name: "김준성", nickname: "hide on bush", id: "2018312075", depart: "소프트웨어학과", tier: "", rank: "", point: "" }];
+//user안의 json 형식: { name: "김준성", nickname: "hide on bush", id: "2018312075", depart: "소프트웨어학과", tier: "", rank: "", point: "" }
+let user = [];
 let user_count = 1;
 app.post('/connect', (req, res) => {
     let flag = 1;
@@ -14,9 +14,9 @@ app.post('/connect', (req, res) => {
     if (flag) {
         user.push(req.body);
         user_count++;
-        console.log(JSON.stringify(user))
-        res.send(200);
     }
+    console.log(JSON.stringify(user))
+    res.send(200);
 })
 // setInterval(() => console.log(JSON.stringify(user)), 1000);
 app.use(express.static("public"));
