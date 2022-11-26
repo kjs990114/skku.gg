@@ -6,6 +6,8 @@ app.use(express.json());
 //user안의 json 형식: { name: "김준성", nickname: "hide on bush", id: "2018312075", depart: "소프트웨어학과", tier: "", rank: "", point: "" }
 let user = [];
 let user_count = 1;
+
+
 app.post('/connect', (req, res) => {
     let flag = 1;
     user.forEach((e) => {
@@ -18,13 +20,15 @@ app.post('/connect', (req, res) => {
     console.log(JSON.stringify(user))
     res.send(200);
 })
+app.get('/info',(req,res)=>{
+    res.send(JSON.stringify(user));
+})
 // setInterval(() => console.log(JSON.stringify(user)), 1000);
 app.use(express.static("public"));
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 })
-
 
 
 

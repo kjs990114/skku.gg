@@ -4,9 +4,102 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ranking</title>
 </head>
 <body>
+    <h1>Ranking In SKKU</h1>
+    <ul id="ranking">
+        
+    </ul>
+    
     
 </body>
+<script>
+    let infoList=[];
+    let printList;
+    let print = document.getElementById("ranking");
+    
+    window.addEventListener("load",()=>{
+        fetch("/info",{method:"GET"})
+        .then((res)=>res.json())
+        .then((user)=>{
+            for(let i=0;i<user.length;i++){
+                ranking(user[i].nickname,user[i].tier,user[i].rank,user[i].point);
+            }
+            console.log(user);
+            console.log(infoList);
+        })
+    })
+
+
+    function ranking(nickname, tier, rank, point){
+
+        let userInfo = {
+        userId : nickname,
+        tier: tier,
+        rank: rank,
+        point:  point,
+        rankingVal: calcVal(rank, tier, point)
+        };
+        infoList.push(userInfo);
+        infoList.sort(sortVal);
+    }
+
+
+
+    function calcVal(rank, tier, point){
+        let value = 0;
+        switch(tier){
+            case "IRON":
+                value += 0;
+                break;
+            case "BRONZE":
+                value += 10000;
+                break;
+            case "SILVER":
+                value += 20000;
+                break;
+            case "GOLD":
+                value += 30000;
+                break;
+            case "PLATINUM":
+                value += 40000;
+                break;
+            case "DIAMOND":
+                value += 50000;
+                break;
+            case "MASTER":
+                value += 60000;
+                break;
+            default:
+                value += 70000;
+                break;
+        }
+        switch(rank){
+            case "I":
+                value += 1000;
+                break;
+            case "II":
+                value+=2000;
+                break;
+            case "III":
+                value+=3000;
+                break;
+            case "IV":
+                value+=4000;
+                break;
+            default:
+                value+=0;
+                break;
+        }
+        value += point;
+
+        return value;
+    }
+    function sortVal(a, b){
+        return b.value - a.value;
+    }
+
+
+</script>
 </html>
