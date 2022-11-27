@@ -38,5 +38,5 @@ app.get('/search', (req, res) => {
 })
 
 app.get('/info',(req,res)=>{
-    res.send(user)
+    res.send(user);
 })

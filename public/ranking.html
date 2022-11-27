@@ -23,15 +23,13 @@
         fetch("/info",{method:"GET"})
         .then((res)=>res.json())
         .then((user)=>{
-            console.log(user);
             for(let i=0;i<user.length;i++){
                 ranking(user[i].nickname,user[i].tier,user[i].rank,user[i].point);
             }
-            console.log(user);
-            console.log(infoList);
+          
         })
     })
-
+    alert(infoList);
 
     function ranking(nickname, tier, rank, point){
         let userInfo = {
