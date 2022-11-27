@@ -8,23 +8,37 @@
 </head>
 <body>
     <h1>Ranking</h1>
-    <ul id="ranking"></ul>
+    <table style = "border:1px">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>NickName</th>
+                <th>Tier</th>
+                <th>Rank</th>
+                <th>Point</th>
+            </tr>
+        </thead>
+        <tbody id="result">
+
+        </tbody>
+        
+    </table>
 </body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 <script>    
     let infoList=[];
-    let print = document.getElementById("ranking");
     window.onload = function(){
         fetch("/info",{method:"GET"})
         .then((res)=>res.json())
         .then((user)=>{
             for(let i=0;i<user.length;i++){
-                alert(user[i]);
-                console.log(user);
                 ranking(user[i].nickname,user[i].tier,user[i].rank,user[i].point);
-            }
+            };
+            infoList.sort(sortVal);
+            for(let i =0;i<infoList.length;i++){
+                $("#result").append("<tr>" + "<td>" +(i+1)+ "</td>" + "<td>" + infoList[i].userId + "</td>" + "<td>" + infoList[i].tier + "</td>" + "<td>" + infoList[i].rank + "</td>" + "<td>" +infoList[i].point+ "</td>" + "</tr>");
+        }
         })
-
-
     }
 
     
@@ -39,7 +53,6 @@
         rankingVal: calcVal(rank, tier, point)
         };
         infoList.push(userInfo);
-        infoList.sort(sortVal);
     }
 
 
@@ -101,7 +114,7 @@
         return value;
     }
     function sortVal(a, b){
-        return b.value - a.value;
+        return b.rankingVal - a.rankingVal;
     }
 
 
