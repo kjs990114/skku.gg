@@ -7,29 +7,28 @@
     <title>Ranking</title>
 </head>
 <body>
-    <h1>Ranking In SKKU</h1>
-    <ul id="ranking">
-        
-    </ul>
-    
-    
+    <h1>Ranking</h1>
+    <ul id="ranking"></ul>
 </body>
-<script>
+<script>    
     let infoList=[];
-    let printList;
     let print = document.getElementById("ranking");
-    
-    window.addEventListener("load",()=>{
+    window.onload = function(){
         fetch("/info",{method:"GET"})
         .then((res)=>res.json())
         .then((user)=>{
             for(let i=0;i<user.length;i++){
+                alert(user[i]);
+                console.log(user);
                 ranking(user[i].nickname,user[i].tier,user[i].rank,user[i].point);
             }
-          
         })
-    })
-    alert(infoList);
+
+
+    }
+
+    
+
 
     function ranking(nickname, tier, rank, point){
         let userInfo = {
