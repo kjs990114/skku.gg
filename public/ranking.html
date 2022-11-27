@@ -23,6 +23,7 @@
         fetch("/info",{method:"GET"})
         .then((res)=>res.json())
         .then((user)=>{
+            console.log(user);
             for(let i=0;i<user.length;i++){
                 ranking(user[i].nickname,user[i].tier,user[i].rank,user[i].point);
             }
@@ -33,7 +34,6 @@
 
 
     function ranking(nickname, tier, rank, point){
-
         let userInfo = {
         userId : nickname,
         tier: tier,
@@ -71,6 +71,9 @@
             case "MASTER":
                 value += 60000;
                 break;
+            case "UNRANK":
+                value = 0;
+                break;
             default:
                 value += 70000;
                 break;
@@ -92,7 +95,11 @@
                 value+=0;
                 break;
         }
-        value += point;
+        if(point === "UNRANK") value = 0;
+        else{
+            value += point;
+        }
+        
 
         return value;
     }

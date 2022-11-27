@@ -17,13 +17,10 @@ app.post('/connect', (req, res) => {
         user.push(req.body);
         user_count++;
     }
-    console.log(JSON.stringify(user))
     res.send(200);
 })
-app.get('/info',(req,res)=>{
-    res.send(JSON.stringify(user));
-})
-// setInterval(() => console.log(JSON.stringify(user)), 1000);
+
+setInterval(() => console.log(JSON.stringify(user)), 1000);
 app.use(express.static("public"));
 
 app.listen(port, () => {
@@ -31,15 +28,15 @@ app.listen(port, () => {
 })
 
 
-
-
 let response = {};
 app.post('/search', (req, res) => {
     response = req.body;
-    console.log(response);
 })
 
 app.get('/search', (req, res) => {
     res.send(JSON.stringify(response));
 })
 
+app.get('/info',(req,res)=>{
+    res.send(user)
+})
