@@ -73,6 +73,13 @@ body {
   /* box-shadow: 0px 1px 3px; */
 }
 
+.items {
+  display: flex;
+}
+.spells {
+  display: flex;
+}
+
 .list {
   width: 100%;
   padding: 1rem;
