@@ -8,14 +8,16 @@
 </head>
 <body>
     <h1>Ranking</h1>
-    <table style = "border:1px">
+    <table style = "border:1px black solid; width: 70%; text-align: center;" >
         <thead>
             <tr>
                 <th>#</th>
+                <th>Name</th>
                 <th>NickName</th>
                 <th>Tier</th>
                 <th>Rank</th>
                 <th>Point</th>
+                <th>Department</th>
             </tr>
         </thead>
         <tbody id="result">
@@ -32,11 +34,11 @@
         .then((res)=>res.json())
         .then((user)=>{
             for(let i=0;i<user.length;i++){
-                ranking(user[i].nickname,user[i].tier,user[i].rank,user[i].point);
+                ranking(user[i].name,user[i].nickname,user[i].tier,user[i].rank,user[i].point,user[i].depart);
             };
             infoList.sort(sortVal);
             for(let i =0;i<infoList.length;i++){
-                $("#result").append("<tr>" + "<td>" +(i+1)+ "</td>" + "<td>" + infoList[i].userId + "</td>" + "<td>" + infoList[i].tier + "</td>" + "<td>" + infoList[i].rank + "</td>" + "<td>" +infoList[i].point+ "</td>" + "</tr>");
+                $("#result").append("<tr>" + "<td>" +(i+1)+ "</td>" + "<td>" + infoList[i].name + "</td>" + "<td>"+infoList[i].userId + "</td>" + "<td>" + infoList[i].tier + "</td>" + "<td>" + infoList[i].rank + "</td>" + "<td>" +infoList[i].point+ "</td>" + "<td>"+infoList[i].department+"</td>"+"</tr>");
         }
         })
     }
@@ -44,13 +46,15 @@
     
 
 
-    function ranking(nickname, tier, rank, point){
+    function ranking(name,nickname, tier, rank, point, department){
         let userInfo = {
+            name: name,
         userId : nickname,
         tier: tier,
         rank: rank,
         point:  point,
-        rankingVal: calcVal(rank, tier, point)
+        rankingVal: calcVal(rank, tier, point),
+        department: department
         };
         infoList.push(userInfo);
     }
@@ -90,16 +94,16 @@
         }
         switch(rank){
             case "I":
-                value += 1000;
+                value += 4000;
                 break;
             case "II":
-                value+=2000;
-                break;
-            case "III":
                 value+=3000;
                 break;
+            case "III":
+                value+=2000;
+                break;
             case "IV":
-                value+=4000;
+                value+=1000;
                 break;
             default:
                 value+=0;
