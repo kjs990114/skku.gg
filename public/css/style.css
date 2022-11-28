@@ -86,3 +86,21 @@ body {
     color: gray;
 
 }
+
+.select-box {
+    border-radius: 5px;
+    width: 500px;
+    height: 55px;
+    border-color: rgba(173, 170, 170, 0.964);
+    padding-left: 50px;
+}
+
+#option-box {
+    padding-left: 10px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}

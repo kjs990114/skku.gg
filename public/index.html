@@ -35,7 +35,19 @@
             </div>
             <div class="text-box">
                 <i class="fa-solid fa-building-user"></i>
-                <input type="text" class="input-box" id="get_depart" placeholder="학과를 입력하세요." required>
+                <select class="select-box" id="get_depart" required>
+                    <div id="option-box">
+                        <option value="" selected>학과를 선택하세요.</option>
+                        <option value="소프트웨어학과">소프트웨어학과</option>
+                        <option value="반도체시스템공학과">반도체시스템공학과</option>
+                        <option value="생명과학과">생명과학과</option>
+                        <option value="수학과">수학과</option>
+                        <option value="화학공학과">화학공학과</option>
+                        <option value="신소재공학과">신소재공학과</option>
+                        <option value="기계공학과">기계공학과</option>
+                        <option value="나노공학과">나노공학과</option>
+                    </div>
+                </select>
             </div>
             <div>
                 <button id="login-btn">로그인</button>
@@ -48,8 +60,9 @@
             let name = document.getElementById("get_name").value;
             let nickname = document.getElementById("get_nick").value.replace(/(\s*)/g, '');
             let id = document.getElementById("get_id").value;
-            let depart = document.getElementById("get_depart").value;
-
+            let target = document.getElementById("get_depart");
+            let depart = target.options[target.selectedIndex].value;
+            if (!depart) return;
 
             const url = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + nickname + "?api_key=RGAPI-2e1ce1cf-6ec5-41ae-956a-d38e84664106";
             const xmlhttp = new XMLHttpRequest();
