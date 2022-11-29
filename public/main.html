@@ -18,10 +18,10 @@
     <div class="container" id="top">
         <ul>
             <li>
-                <a href="./ranking.html"> 랭킹 </a>
+                <a href="./main.html" id="ranking"> 랭킹 </a>
             </li>
             <li>
-                <a href="./mypage.html">내 정보</a>
+                <a href="./main.html" id="mypage">내 정보</a>
             </li>
         </ul>
 
@@ -56,9 +56,24 @@
                 },
                 body: JSON.stringify({ nick }),
             });
-
-            location.href = "./searching.html";
+            window.open("./searching.html", "", "_blank", "location = no");
         });
+        document.getElementById("ranking").addEventListener("click", () => {
+            window.open("./ranking.html", "", "_blank", "location = no");
+        })
+        document.getElementById("mypage").addEventListener("click", () => {
+
+            let nick = localStorage.getItem("nickname");
+            if (nick === "") return;
+            fetch("/search", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ nick }),
+            });
+            window.open("./searching.html", "", "_blank", "location = no");
+        })
     </script>
 </body>
 
