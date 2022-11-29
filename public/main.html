@@ -10,28 +10,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet" />
-
+    <script src="./js/main.js"></script>
     <title>SKKU.GG</title>
 </head>
 
 <body>
     <div class="container" id="top">
-        <ul>
-            <li>
-                <a href="./main.html" id="ranking"> 랭킹 </a>
-            </li>
-            <li>
-                <a href="./main.html" id="mypage">내 정보</a>
-            </li>
-        </ul>
-
         <content>
             <div id="logo-div">
                 <img src="./css/img/emblem.png" />
                 <h1>SKKU.GG</h1>
             </div>
-            <br />
-            <br />
             <div id="search">
                 <input id="summoner-search" placeholder="소환사 이름을 입력하세요." type="text" />
                 <button id="search-btn">
@@ -40,10 +29,67 @@
             </div>
         </content>
     </div>
+    <div class="container" id="bottom">
+        <div id="cover">
+            <div id="dash">
+                <div id="page">
+                    <div id="leftContainer">
+                        <p id="today"></p>
+                        <div id="leftBox">
+                            <div id="userImg">
+                                <img src="" style="width:80%" id="usrImg">
+                            </div>
+                            <p>
+                                <span id="name">Name:</span> <br>
+                                <span id="nick">NickName:</span> <br>
+                                <span id="depart">Department:</span> <br>
+
+                            </p>
+                            <p>
+                                Visits so far: <span id="counter"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="midContainer">
+                        <p id="midTop"></p>
+                        <div id="midBox">
+                            <div class="board_wrap">
+                                <div class="board_title">
+                                    <h3>Comments</h3>
+                                </div>
+                                <div class="board_list_wrap">
+                                    <div id="chats">
+                                    </div>
+                                    <div class="d-flex">
+                                        <input type="text" id="chat" class="form-control" placeholder="Enter a comment here" style="width:80%;">
+                                        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                    <div id="rightContainer">
+                        <div id="rightBox">
+                            <ul>
+                                <li>
+                                    <a href="./main.html" id="ranking"> 랭킹 </a>
+                                </li>
+                                <li>
+                                    <a href="./main.html" id="mypage"> 최근전적 </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
+
+
     <script>
-        window.addEventListener("load", () => {
-            console.log(window.localStorage);
-        })
         document.getElementById("search-btn").addEventListener("click", () => {
             let nick = document
                 .getElementById("summoner-search")
@@ -74,7 +120,7 @@
             });
             window.open("./searching.html", "", "_blank", "location = no");
         })
-    </script>
+     </script>
 </body>
 
 </html>

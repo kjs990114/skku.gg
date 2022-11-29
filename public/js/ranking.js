@@ -24,9 +24,6 @@ window.onload = function () {
 
 };
 let selected = $("#depart option:checked").text();
-console.log(infoList);
-console.log(infoList.filter(departPick));
-
 
 
 function ranking(name, nickname, tier, rank, point, department) {
@@ -133,9 +130,6 @@ function imgPick(tier) {
       break;
     case "UNRANK":
       src = "./css/img/Emblem_Unrank.png";
-      break;
-    default:
-      value += 70000;
       break;
   }
   return src;
