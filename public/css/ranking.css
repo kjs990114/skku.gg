@@ -10,6 +10,14 @@ img{
 div{
     display: block;
 }
+select{
+    background: transparent;
+    width:20%;
+    height:150%;
+    font-size: 1.6rem;
+    border:none;
+
+}
 
 .rank_wrap{
     width:90%;
