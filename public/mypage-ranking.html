@@ -40,42 +40,41 @@
                 <p>Visits so far: <span id="counter"></span></p>
               </div>
             </div>
-            <div id="midContainer_profile">
+
+            <div id="midContainer_ranking">
               <p id="midTop"></p>
               <div id="midBox">
                 <div class="board_wrap">
                   <div class="board_title">
-                    <h3>Comments</h3>
+                    <h1>
+                      RANKING in
+                      <select class="select-box" id="depart" required>
+                        <div id="option-box">
+                          <option value="All" selected>SKKU</option>
+                          <option value="소프트웨어학과">소프트웨어학과</option>
+                          <option value="반도체시스템공학과">
+                            반도체시스템공학과
+                          </option>
+                          <option value="생명과학과">생명과학과</option>
+                          <option value="수학과">수학과</option>
+                          <option value="화학공학과">화학공학과</option>
+                          <option value="신소재공학과">신소재공학과</option>
+                          <option value="기계공학과">기계공학과</option>
+                          <option value="나노공학과">나노공학과</option>
+                        </div>
+                      </select>
+                    </h1>
                   </div>
                   <div class="board_list_wrap">
-                    <div
-                      id="chats"
-                      style="
-                        display: absolute;
-                        bottom: 0;
-                        height: 500px;
-                        width: 80%;
-                        border: 1px solid black;
-                        border-radius: 5px;
-                        overflow: auto;
-                        margin-bottom: 10px;
-                      "
-                    >
-                      <div class="chatBox" style="display: none">
-                        <button id="deleteBox">X</button>
+                    <div id="print_list" class="ranking_list">
+                      <div class="top">
+                        <div class="rank">#</div>
+                        <div class="nickname">NickName</div>
+                        <div class="name">Name</div>
+                        <div class="tier">Tier</div>
+                        <div class="point">Point</div>
+                        <div class="department">Department</div>
                       </div>
-                    </div>
-                    <div class="d-flex">
-                      <input
-                        type="text"
-                        id="chat"
-                        class="form-control"
-                        placeholder="Enter a comment here"
-                        style="width: 80%"
-                      />
-                      <button type="submit" id="submit" class="btn btn-primary">
-                        Submit
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -124,19 +123,6 @@
       document.getElementById("profile").addEventListener("click", () => {});
       document.getElementById("ranking").addEventListener("click", () => {});
       document.getElementById("mypage").addEventListener("click", () => {});
-      // document.getElementById("mypage").addEventListener("click", () => {
-
-      //     let nick = localStorage.getItem("nickname");
-      //     if (nick === "") return;
-      //     fetch("/search", {
-      //         method: "POST",
-      //         headers: {
-      //             "Content-Type": "application/json",
-      //         },
-      //         body: JSON.stringify({ nick }),
-      //     });
-      //     window.open("./searching.html", "", "_blank", "location = no, toolbar = no, menubar = no");
-      // })
     </script>
   </body>
 </html>
