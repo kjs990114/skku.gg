@@ -1,5 +1,4 @@
 window.addEventListener("load", () => {
-  console.log(window.localStorage);
   let today = new Date();
   document.getElementById("today").innerHTML =
     "Today: " +
@@ -42,6 +41,9 @@ window.addEventListener("load", () => {
     input.value = "";
   });
 
+  document.getElementById("ranking").addEventListener("click",()=>{
+
+  })
 });
 
 function loadChats() {
@@ -55,12 +57,11 @@ function loadChats() {
         li.className = "chatBox";
         li.innerHTML = chat;
 
-        let del = document.createElement("button");
+        let del = document.createElement("div");
         del.id = "deleteBox";
         del.innerHTML = "X";
         del.onclick = () => {
-          let parent = this.parentNode;
-          parent.removeChild(0);
+          console.log($(this).parentNode)
         }
         li.appendChild(del);
         list.appendChild(li);

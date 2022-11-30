@@ -34,7 +34,7 @@ app.post('/connect', (req, res) => {
 
 })
 
-setInterval(() => console.log(JSON.stringify(user)), 1000);
+//setInterval(() => console.log(JSON.stringify(user)), 1000);
 app.use(express.static("public"));
 
 app.listen(port, () => {
