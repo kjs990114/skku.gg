@@ -23,7 +23,7 @@ SKKU.GG는 온라인 게임 League of Legends의 전적 검색 기능과 미니 
 해당 소환사의 티어 및 최근 전적이 검색됩니다.
 <img src="https://user-images.githubusercontent.com/107476261/204822054-12dab435-3899-4e38-bff3-e86906bc6f07.png" width=600  >
 
-<br>
+- 미니 홈피<br>
 상단에 내 미니홈피를 클릭하면 방명록을 입력할 수 있는 미니홈피창이 뜹니다. 또한 미니홈피 안에서 자신의 전적과 교내 랭킹을 볼 수 있습니다. 
 <img src="https://user-images.githubusercontent.com/107476261/204822983-25882e20-f97a-4297-9df2-273e501fdff8.png" width=600  >
 
@@ -31,6 +31,7 @@ SKKU.GG는 온라인 게임 League of Legends의 전적 검색 기능과 미니 
 상단에 내 미니홈피를 클릭하면 방명록을 입력할 수 있는 미니홈피창이 뜹니다. 또한 미니홈피 안에서 자신의 전적과 교내 랭킹을 볼 수 있습니다. 
 <img src="https://user-images.githubusercontent.com/107476261/204822983-25882e20-f97a-4297-9df2-273e501fdff8.png" width=600  >
 
-<br>
+- 랭킹<br>
+  교내 및 학과별 자신의 랭킹을 확인 할 수 있습니다. 
 <img src="https://user-images.githubusercontent.com/107476261/204827280-3d6d0271-74cb-4bb6-a335-0a05747c4103.png" width=600  >
 
