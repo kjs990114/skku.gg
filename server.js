@@ -10,14 +10,28 @@ let user_count = 1;
 
 app.post('/connect', (req, res) => {
     let flag = 1;
+    let flag2 = 1;
     user.forEach((e) => {
-        if (e["id"] === req.body["id"]) flag = 0;
+        if (e["id"] === req.body["id"]) {
+            flag = 0;
+            if (e["nickname"] !== req.body["nickname"]) {
+                console.log("소환사명과 학번이 일치하지 않습니다.");
+                flag2 = 0;
+            }
+        }
     })
     if (flag) {
         user.push(req.body);
         user_count++;
     }
-    res.send(200);
+    if (flag2) {
+        res.send(200);
+    }
+    else {
+        res.send(400);
+    }
+
+
 })
 
 setInterval(() => console.log(JSON.stringify(user)), 1000);

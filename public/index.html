@@ -62,6 +62,7 @@
             let id = document.getElementById("get_id").value;
             let target = document.getElementById("get_depart");
             let depart = target.options[target.selectedIndex].value;
+            let count = 0;
             if (!depart) return;
 
             const url = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + nickname + "?api_key=RGAPI-2e1ce1cf-6ec5-41ae-956a-d38e84664106";
@@ -116,18 +117,28 @@
                                     'Content-Type': 'application/json',
                                 },
                                 body: JSON.stringify({ name, nickname, id, depart, tier, rank, point })
-                            }).then(() => {
-                                location.href = "./main.html";
-                                window.localStorage.setItem("name", name);
-                                window.localStorage.setItem("nickname", nickname);
-                                window.localStorage.setItem("id", id);
-                                window.localStorage.setItem("depart", depart);
-                                window.localStorage.setItem("tier", tier);
-                                window.localStorage.setItem("rank", rank);
-                                window.localStorage.setItem("point", point);
+                            }).then((res) => res.text())
+                                .then((txt) => {
+
+                                    if (txt === "OK") {
+                                        location.href = "./main.html";
+                                        window.localStorage.setItem("name", name);
+                                        window.localStorage.setItem("nickname", nickname);
+                                        window.localStorage.setItem("id", id);
+                                        window.localStorage.setItem("depart", depart);
+                                        window.localStorage.setItem("tier", tier);
+                                        window.localStorage.setItem("rank", rank);
+                                        window.localStorage.setItem("point", point);
+                                    }
+                                    else {
+                                        if (count === 0) {
+                                            count++;
+                                            alert("소환사 명과 학번이 일치하지 않습니다.");
+                                        }
+                                    }
 
 
-                            })
+                                })
 
                         }
                     }
