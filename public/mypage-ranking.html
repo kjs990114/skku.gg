@@ -32,12 +32,11 @@
                 <div id="userImg">
                   <img src="" style="width: 80%" id="usrImg" />
                 </div>
-                <p>
-                  <span id="name"></span> <br />
-                  <span id="nick"></span> <br />
-                  <span id="depart"></span> <br />
+                <p style="text-align: left; padding-left: 20px; letter-spacing: 3px;">
+                  <span id="name"></span> <br> <br>
+                  <span id="nick"></span> <br> <br>
+                  <span id="depart"></span> <br> <br>
                 </p>
-                <p>Visits so far: <span id="counter"></span></p>
               </div>
             </div>
 
@@ -46,7 +45,7 @@
               <div id="midBox">
                 <div class="board_wrap">
                   <div class="board_title">
-                    <h1>
+                    <h3>
                       RANKING in
                       <select class="select-box" id="depart" required>
                         <div id="option-box">
@@ -63,7 +62,7 @@
                           <option value="나노공학과">나노공학과</option>
                         </div>
                       </select>
-                    </h1>
+                    </h3>
                   </div>
                   <div class="board_list_wrap">
                     <div id="print_list" class="ranking_list">
@@ -86,10 +85,10 @@
                 <ul>
                   <li>
                     <a href="./mypage.html" id="profile" class="tapButton"
-                      >프로필</a
+                      >다이어리</a
                     >
                   </li>
-                  <li>
+                  <li id="selected">
                     <a
                       href="./mypage-ranking.html"
                       id="ranking"
@@ -98,7 +97,7 @@
                       랭킹
                     </a>
                   </li>
-                  <li>
+                  <li >
                     <a
                       href="./mypage-searching.html"
                       id="mypage"
@@ -107,6 +106,9 @@
                       최근전적
                     </a>
                   </li>
+                  <li id="homeBtn">
+                    <a href="./main.html" class="tapButton" >홈</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -114,15 +116,5 @@
         </div>
       </div>
     </div>
-    <script>
-      document.getElementById("deleteBox").addEventListener("click", () => {
-        let parent = this.parentNode;
-        console.log(parent);
-      });
-
-      document.getElementById("profile").addEventListener("click", () => {});
-      document.getElementById("ranking").addEventListener("click", () => {});
-      document.getElementById("mypage").addEventListener("click", () => {});
-    </script>
   </body>
 </html>

@@ -1,3 +1,4 @@
+
 window.addEventListener("load", () => {
   let today = new Date();
   document.getElementById("today").innerHTML =
@@ -16,34 +17,25 @@ window.addEventListener("load", () => {
   document.getElementById("depart").innerHTML =
     "Depart: " + localStorage.depart;
 
-  fetch("/counter", { method: "GET" })
-    .then((res) => res.text())
-    .then((count) => {
-      let counter = document.getElementById("counter");
-      counter.textContent = count;
+    loadChats();
+
+    document.getElementById("submit").addEventListener("click", () => {
+      let input = document.getElementById("chat");
+      let chat = input.value;
+      
+      fetch("/chats", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ chat }),
+      }).then(() => {
+        loadChats();
+      });
+      input.value = "";
     });
 
-  loadChats();
 
-  document.getElementById("submit").addEventListener("click", () => {
-    let input = document.getElementById("chat");
-    let chat = input.value;
-
-    fetch("/chats", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ chat }),
-    }).then(() => {
-      loadChats();
-    });
-    input.value = "";
-  });
-
-  document.getElementById("ranking").addEventListener("click",()=>{
-
-  })
 });
 
 function loadChats() {
@@ -57,18 +49,24 @@ function loadChats() {
         li.className = "chatBox";
         li.innerHTML = chat;
 
-        let del = document.createElement("div");
+        let del = document.createElement("button");
         del.id = "deleteBox";
-        del.innerHTML = "X";
-        del.onclick = () => {
-          console.log($(this).parentNode)
-        }
+        del.innerHTML = '<i class="bi bi-x"></i>';
+        del.onclick=() =>{
+          li.remove($(this));
+          fetch("/del", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ chat }),
+          });
+        };
         li.appendChild(del);
         list.appendChild(li);
       });
     });
 }
-
 function imgPick(tier) {
   let src = "";
   switch (tier) {
