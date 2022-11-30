@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/search.css" />
+    <link href="./css/mypage.css" rel="stylesheet" />
+
+    <script src="./js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="./js/ranking.js"></script>
+  </head>
+
+  <body>
+    <div class="container" id="bottom">
+      <div id="cover">
+        <div id="dash">
+          <div id="page">
+            <div id="leftContainer">
+              <p id="today"></p>
+              <div id="leftBox">
+                <div id="userImg">
+                  <img src="" style="width: 80%" id="usrImg" />
+                </div>
+                <p>
+                  <span id="name"></span> <br />
+                  <span id="nick"></span> <br />
+                  <span id="depart"></span> <br />
+                </p>
+                <p>Visits so far: <span id="counter"></span></p>
+              </div>
+            </div>
+
+            <div id="midContainer_mypage">
+              <p id="midTop"></p>
+              <div id="midBox">
+                <div class="board_wrap">
+                  <div class="board_title">
+                    <h3>Comments</h3>
+                  </div>
+                  <div class="board_list_wrap">
+                    <div id="profile">
+                      <div id="user">
+                        <span id="user-icon"></span>
+                        <div>
+                          <p id="user-name"></p>
+                          <p id="user-level"></p>
+                        </div>
+                      </div>
+
+                      <div id="solo-tier">
+                        <div>
+                          <h5>리그 : 솔로랭크 5v5</h5>
+                          <img id="tier-img-solo" />
+                          <div>
+                            <span id="user-tier-solo"></span>
+                            <span id="user-rank-solo"></span>
+                            <span id="user-point-solo"></span>
+                          </div>
+                        </div>
+                        <div id="win-rate-solo">
+                          <span id="user-win-solo"></span>
+                          승 <span id="user-loss-solo"></span>패
+                        </div>
+                      </div>
+
+                      <div id="free-tier">
+                        <div>
+                          <h5>리그 : 자유랭크 5v5</h5>
+                          <img id="tier-img-free" />
+                          <div>
+                            <span id="user-tier-free"></span>
+                            <span id="user-rank-free"></span>
+                            <span id="user-point-free"></span>
+                          </div>
+                        </div>
+                        <div id="win-rate-free">
+                          <span id="user-win-free"></span>승
+                          <span id="user-loss-free"></span>패
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="history-element list">
+                        <span>승/패</span><span>큐 타입</span>
+                        <span>챔피언</span>
+                        <span>KDA</span>
+                        <span> 스펠</span>
+                        <span>아이템</span>
+                      </div>
+                      <div id="match-history">
+                        <div class="history-element">
+                          <span class="win"></span
+                          ><span class="queueType"></span>
+                          <span class="championId"></span>
+                          <span class="kda"></span>
+                          <div class="spells">
+                            <span class="spell-0"></span>
+                            <span class="spell-1"></span>
+                          </div>
+                          <div class="items">
+                            <span class="item-0"></span
+                            ><span class="item-1"></span
+                            ><span class="item-2"></span
+                            ><span class="item-3"></span>
+                            <span class="item-4"></span
+                            ><span class="item-5"></span>
+                          </div>
+                        </div>
+                        <div class="history-element">
+                          <span class="win"></span
+                          ><span class="queueType"></span>
+                          <span class="championId"></span>
+                          <span class="kda"></span>
+                          <div class="spells">
+                            <span class="spell-0"></span>
+                            <span class="spell-1"></span>
+                          </div>
+                          <div class="items">
+                            <span class="item-0"></span
+                            ><span class="item-1"></span
+                            ><span class="item-2"></span
+                            ><span class="item-3"></span>
+                            <span class="item-4"></span
+                            ><span class="item-5"></span>
+                          </div>
+                        </div>
+
+                        <div class="history-element">
+                          <span class="win"></span
+                          ><span class="queueType"></span>
+                          <span class="championId"></span>
+                          <span class="kda"></span>
+                          <div class="spells">
+                            <span class="spell-0"></span>
+                            <span class="spell-1"></span>
+                          </div>
+                          <div class="items">
+                            <span class="item-0"></span
+                            ><span class="item-1"></span
+                            ><span class="item-2"></span
+                            ><span class="item-3"></span>
+                            <span class="item-4"></span
+                            ><span class="item-5"></span>
+                          </div>
+                        </div>
+                        <div class="history-element">
+                          <span class="win"></span
+                          ><span class="queueType"></span>
+                          <span class="championId"></span>
+                          <span class="kda"></span>
+                          <div class="spells">
+                            <span class="spell-0"></span>
+                            <span class="spell-1"></span>
+                          </div>
+                          <div class="items">
+                            <span class="item-0"></span
+                            ><span class="item-1"></span
+                            ><span class="item-2"></span
+                            ><span class="item-3"></span>
+                            <span class="item-4"></span
+                            ><span class="item-5"></span>
+                          </div>
+                        </div>
+                        <div class="history-element">
+                          <span class="win"></span
+                          ><span class="queueType"></span>
+                          <span class="championId"></span>
+                          <span class="kda"></span>
+                          <div class="spells">
+                            <span class="spell-0"></span>
+                            <span class="spell-1"></span>
+                          </div>
+                          <div class="items">
+                            <span class="item-0"></span
+                            ><span class="item-1"></span
+                            ><span class="item-2"></span
+                            ><span class="item-3"></span>
+                            <span class="item-4"></span
+                            ><span class="item-5"></span>
+                          </div>
+                        </div>
+                        <div class="history-element">
+                          <span class="win"></span
+                          ><span class="queueType"></span>
+                          <span class="championId"></span>
+                          <span class="kda"></span>
+                          <div class="spells">
+                            <span class="spell-0"></span>
+                            <span class="spell-1"></span>
+                          </div>
+                          <div class="items">
+                            <span class="item-0"></span
+                            ><span class="item-1"></span
+                            ><span class="item-2"></span
+                            ><span class="item-3"></span>
+                            <span class="item-4"></span
+                            ><span class="item-5"></span>
+                          </div>
+                        </div>
+                        <div class="history-element">
+                          <span class="win"></span
+                          ><span class="queueType"></span>
+                          <span class="championId"></span>
+                          <span class="kda"></span>
+                          <div class="spells">
+                            <span class="spell-0"></span>
+                            <span class="spell-1"></span>
+                          </div>
+                          <div class="items">
+                            <span class="item-0"></span
+                            ><span class="item-1"></span
+                            ><span class="item-2"></span
+                            ><span class="item-3"></span>
+                            <span class="item-4"></span
+                            ><span class="item-5"></span>
+                          </div>
+                        </div>
+                        <div class="history-element">
+                          <span class="win"></span
+                          ><span class="queueType"></span>
+                          <span class="championId"></span>
+                          <span class="kda"></span>
+                          <div class="spells">
+                            <span class="spell-0"></span>
+                            <span class="spell-1"></span>
+                          </div>
+                          <div class="items">
+                            <span class="item-0"></span
+                            ><span class="item-1"></span
+                            ><span class="item-2"></span
+                            ><span class="item-3"></span>
+                            <span class="item-4"></span
+                            ><span class="item-5"></span>
+                          </div>
+                        </div>
+                        <div class="history-element">
+                          <span class="win"></span
+                          ><span class="queueType"></span>
+                          <span class="championId"></span>
+                          <span class="kda"></span>
+                          <div class="spells">
+                            <span class="spell-0"></span>
+                            <span class="spell-1"></span>
+                          </div>
+                          <div class="items">
+                            <span class="item-0"></span
+                            ><span class="item-1"></span
+                            ><span class="item-2"></span
+                            ><span class="item-3"></span>
+                            <span class="item-4"></span
+                            ><span class="item-5"></span>
+                          </div>
+                        </div>
+                        <div class="history-element">
+                          <span class="win"></span
+                          ><span class="queueType"></span>
+                          <span class="championId"></span>
+                          <span class="kda"></span>
+                          <div class="spells">
+                            <span class="spell-0"></span>
+                            <span class="spell-1"></span>
+                          </div>
+                          <div class="items">
+                            <span class="item-0"></span
+                            ><span class="item-1"></span
+                            ><span class="item-2"></span
+                            ><span class="item-3"></span>
+                            <span class="item-4"></span
+                            ><span class="item-5"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="rightContainer">
+              <div id="rightBox">
+                <ul>
+                  <li>
+                    <a href="./mypage.html" class="tapButton">프로필</a>
+                  </li>
+                  <li>
+                    <a
+                      href="./mypage-ranking.html"
+                      id="ranking"
+                      class="tapButton"
+                    >
+                      랭킹
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="./mypage-searching.html"
+                      id="mypage"
+                      class="tapButton"
+                    >
+                      최근전적
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.getElementById("deleteBox").addEventListener("click", () => {
+        let parent = this.parentNode;
+        console.log(parent);
+      });
+
+      document.getElementById("profile").addEventListener("click", () => {});
+      document.getElementById("ranking").addEventListener("click", () => {});
+      document.getElementById("mypage").addEventListener("click", () => {});
+    </script>
+    <script src="./js/searching.js"></script>
+  </body>
+</html>
