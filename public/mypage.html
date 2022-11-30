@@ -60,10 +60,10 @@
                         <div id="rightBox">
                             <ul>
                                 <li>
-                                    <a href="./main.html" id="ranking"> 랭킹 </a>
+                                    <a href="./mypage.html" id="ranking"> 랭킹 </a>
                                 </li>
                                 <li>
-                                    <a href="./main.html" id="mypage"> 최근전적 </a>
+                                    <a href="./mypage.html" id="mypage"> 최근전적 </a>
                                 </li>
                             </ul>
                         </div>
@@ -73,6 +73,24 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById("ranking").addEventListener("click", () => {
+            window.open("./ranking.html", "", "_blank", "location = no");
+        })
+        document.getElementById("mypage").addEventListener("click", () => {
+
+            let nick = localStorage.getItem("nickname");
+            if (nick === "") return;
+            fetch("/search", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ nick }),
+            });
+            window.open("./searching.html", "", "_blank", "location = no, toolbar = no, menubar = no");
+        })
+    </script>
 </body>
 
 </html>
