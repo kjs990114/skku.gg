@@ -40,3 +40,21 @@ app.get('/search', (req, res) => {
 app.get('/info', (req, res) => {
     res.send(user);
 })
+let counter = 0;
+
+app.get('/counter', (req, res) => {
+    counter++;
+    res.send(counter.toString())
+})
+let chats = [];
+
+app.get('/chats', (req, res) => {
+    res.send(chats);
+})
+
+app.post('/chats', (req, res) => {
+    chats.push(req.body.chat);
+    res.send(200);
+})
+
+app.use(express.static('public'))
