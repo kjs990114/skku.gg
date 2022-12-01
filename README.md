@@ -1,6 +1,6 @@
 # OSSP Team Project - SKKU.GG
 
-SKKU.GG는 온라인 게임 League of Legends의 전적 검색 기능과 미니 홈페이지를 지원하는 웹사이트입니다.
+SKKU.GG는 온라인 게임 League of Legends의 전적 검색 기능과 미니 홈페이지, 교내별 랭킹기능을 지원하는 웹사이트입니다.
 
 # 🖥 사용법
 1. repo를 다운 받고 다운받은 디렉토리로 갑니다. 터미널에 npm install을 입력하여 필요한 패키지를 다운 받습니다.
