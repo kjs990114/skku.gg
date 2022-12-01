@@ -34,7 +34,6 @@ SKKU.GG는 온라인 게임 League of Legends의 전적 검색 기능과 미니 
 
 
 <br>
-상단에 내 미니홈피를 클릭하면 방명록을 입력할 수 있는 미니홈피창이 뜹니다. 또한 미니홈피 안에서 자신의 전적과 교내 랭킹을 볼 수 있습니다. <br>
 
 ![image](https://user-images.githubusercontent.com/50402527/204986839-48535a65-4d72-47c5-9567-5a2a28e4ca37.png) <br>
 ![image](https://user-images.githubusercontent.com/50402527/204986880-0c97eec3-7000-40c4-9160-cfb8c530a397.png)
