@@ -30,6 +30,9 @@ ul li a {
   font-family: "Nanum Gothic", sans-serif;
 }
 
+#selected{
+    background-color: grey;
+}
 content {
   display: flex;
   justify-content: space-between;
@@ -92,7 +95,7 @@ content {
 #cover {
   background-color: grey;
   padding: 1%;
-  width: 1200px;
+  width: 1300px;
   height: 800px;
   border-radius: 9px;
 }
@@ -154,7 +157,8 @@ content {
 #leftBox {
   width: 95%;
   height: 90%;
-  margin: 5px;
+  margin: 0;
+  margin-left: 5px;
   background-color: white;
   border: #3b711d 1px solid;
   border-radius: 10px;
@@ -194,9 +198,10 @@ content {
 #chats > div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border: #205d01 2px solid;
   border-radius: 5px;
-  height: 10%;
+  height: 6%;
   width: 95%;
   margin: 5px;
   padding: 2px;
@@ -214,4 +219,8 @@ content {
 .top div {
   font-size: 0.75rem;
   font-weight: 700;
+}
+
+#homeBtn{
+    margin-top: 400px;
 }

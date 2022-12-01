@@ -33,12 +33,11 @@
                 <div id="userImg">
                   <img src="" style="width: 80%" id="usrImg" />
                 </div>
-                <p>
-                  <span id="name"></span> <br />
-                  <span id="nick"></span> <br />
-                  <span id="depart"></span> <br />
+                <p style="text-align: left; padding-left: 20px; letter-spacing: 3px;">
+                  <span id="name"></span> <br> <br>
+                  <span id="nick"></span> <br> <br>
+                  <span id="depart"></span> <br> <br>
                 </p>
-                <p>Visits so far: <span id="counter"></span></p>
               </div>
             </div>
 
@@ -47,7 +46,7 @@
               <div id="midBox">
                 <div class="board_wrap">
                   <div class="board_title">
-                    <h3>Comments</h3>
+                    <h3>Recent Games</h3>
                   </div>
                   <div class="board_list_wrap">
                     <div id="profile">
@@ -292,7 +291,7 @@
               <div id="rightBox">
                 <ul>
                   <li>
-                    <a href="./mypage.html" class="tapButton">프로필</a>
+                    <a href="./mypage.html" class="tapButton">다이어리</a>
                   </li>
                   <li>
                     <a
@@ -303,7 +302,7 @@
                       랭킹
                     </a>
                   </li>
-                  <li>
+                  <li id="selected">
                     <a
                       href="./mypage-searching.html"
                       id="mypage"
@@ -312,6 +311,9 @@
                       최근전적
                     </a>
                   </li>
+                  <li id="homeBtn">
+                    <a href="./main.html" class="tapButton" >홈</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -319,16 +321,6 @@
         </div>
       </div>
     </div>
-    <script>
-      document.getElementById("deleteBox").addEventListener("click", () => {
-        let parent = this.parentNode;
-        console.log(parent);
-      });
-
-      document.getElementById("profile").addEventListener("click", () => {});
-      document.getElementById("ranking").addEventListener("click", () => {});
-      document.getElementById("mypage").addEventListener("click", () => {});
-    </script>
     <script src="./js/searching.js"></script>
   </body>
 </html>
