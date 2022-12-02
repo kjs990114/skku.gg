@@ -50,6 +50,7 @@ SKKU.GG는 온라인 게임 League of Legends의 전적 검색 기능과 미니 
 
 # 📹 Youtube
 
+  https://youtu.be/tBe3q0kzsio
 <br>
 <br>
 <br>
